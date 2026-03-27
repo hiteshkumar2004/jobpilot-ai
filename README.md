@@ -1,5 +1,3 @@
-# jobpilot-ai
-AI Job Agent using TinyFish API
 # 🚀 JobPilot AI
 
 ## 🤖 AI Job Agent using TinyFish API
