@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AI Job Agent</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .job-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        .title { font-size: 18px; font-weight: bold; }
+        .company { color: blue; }
+        .salary { color: green; }
+    </style>
+</head>
+<body>
+
+<h2>🚀 AI Job Automation Agent</h2>
+
+<form action="/run-agent" method="post">
+    <input type="text" name="role" placeholder="Enter job role" required>
+    <button type="submit">Search Jobs</button>
+</form>
+
+<br>
+
+<div th:if="${jobs}">
+    <h3>Results for: <span th:text="${role}"></span></h3>
+
+   <div th:each="job : ${jobs}" class="job-card">
+
+    <div class="title" th:text="${job.get('title')}"></div>
+
+    <div class="company">
+        🏢 <span th:text="${job.get('company')}"></span>
+    </div>
+
+    <div class="salary">
+        💰 <span th:text="${job.get('salary')}"></span>
+    </div>
+
+    <div>
+        <strong>Skills:</strong>
+        <ul>
+            <li th:each="skill : ${job.get('skills')}" 
+                th:text="${skill}"></li>
+        </ul>
+    </div>
+
+</div>
+</div>
+
+<div th:if="${note}">
+    <h4>⚠ Note:</h4>
+    <p th:text="${note}"></p>
+</div>
+<footer style="text-align:center; margin-top:30px; padding:15px; color:gray;">
+    📧 Email: padhihitesh2004@gmail.com | 📞 Phone: 7735113368<br>
+    © 2026 Job Portal | Designed by Hitesh Kumar Padhi 
+</footer>
+
+</body>
+</html>
